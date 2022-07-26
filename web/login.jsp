@@ -29,16 +29,18 @@
 
                             <h1 class="">Sign In</h1>
                             <p class="">Log in to your account to continue. <br>Not a Customer ? <a href="adminLogin.jsp">Vendor Log In</a></p>
-                            <div style="color: blue;">${registerSuccess}</div>
-                            <div style="color: red;">${accountError}</div>
+                            <div style="color: red;">
+                                    <% if(request.getParameter("error") != null) { String error = request.getParameter("error"); %>
+                                    <%= error %>
+                                    <% } %></div>
                             <!----------------------------------------------------------------------------------------->
-                            <form  method="post" action="VerifyLogin" class="text-left">
+                            <form  method="post" action="signIn" class="text-left">
                                 <!----------------------------------------------------------------------------------------->
                                 <div class="form">
 
                                     <div id="username-field" class="field-wrapper input mb-2">
                                         <div class="d-flex justify-content-between">
-                                            <label for="username">USERNAME</label>
+                                            <label for="username">ID</label>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -47,7 +49,7 @@
                                         <circle cx="12" cy="7" r="4"></circle>
                                         </svg>
                                         <!----------------------------------------------------------------------------------------->
-                                        <input id="username" name="username" type="text" class="form-control" value="${username}"
+                                        <input id="username" name="username" type="text" class="form-control" 
                                                placeholder="Enter your username here">
                                         <!----------------------------------------------------------------------------------------->
                                     </div>

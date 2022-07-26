@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Login Page</title>
+        <title>Vendor Login Page</title>
         <link rel="stylesheet" href="css/login.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,9 +29,13 @@
 
                             <h1 class="">Sign In</h1>
                             <p class="">Log in to your account to continue.</p>
-                            <div style="color: red;">${accountError}</div>
+                            <div style="color: red;">
+                                 <% if(request.getParameter("error") != null) { String error = request.getParameter("error"); %>
+                                    <%= error %>
+                                    <% } %>
+                            </div>
                             <!----------------------------------------------------------------------------------------->
-                            <form class="text-left" method="post" action="VerifyAdminLogin">
+                            <form class="text-left" method="post" action="signIn">
                                 <!----------------------------------------------------------------------------------------->
                                 <div class="form">
 
@@ -46,7 +50,7 @@
                                         <circle cx="12" cy="7" r="4"></circle>
                                         </svg>
                                         <!----------------------------------------------------------------------------------------->
-                                        <input id="username" name="username" type="text" class="form-control" value="${username}"
+                                        <input id="username" name="username" type="text" class="form-control" 
                                                placeholder="Enter your username here">
                                         <!----------------------------------------------------------------------------------------->
                                     </div>
@@ -67,27 +71,6 @@
                                         <!----------------------------------------------------------------------------------------->
                                         </svg>
                                     </div>
-                                    <div class="radio-role">
-                                        <div class="n-chk">
-                                            Login role with: <br>
-                                            <label class="new-control new-radio new-radio-text radio-primary">
-                                                <!----------------------------------------------------------------------------------------->
-                                                <input type="radio" class="new-control-input" name="position" value="M" checked ${positionManager}>
-                                                <!----------------------------------------------------------------------------------------->
-                                                <span class="new-control-indicator"></span><span
-                                                    class="new-radio-content">Manager</span>
-                                            </label>
-                                        </div>
-                                        <div class="n-chk">
-                                            <label class="new-control new-radio new-radio-text radio-primary">
-                                                <!----------------------------------------------------------------------------------------->
-                                                <input type="radio" class="new-control-input" name="position" value="A" ${positionAdmin}>
-                                                <!----------------------------------------------------------------------------------------->
-                                                <span class="new-control-indicator"></span><span
-                                                    class="new-radio-content">Admin</span>
-                                            </label>
-                                        </div>
-                                    </div>
                                     <div class="d-sm-flex justify-content-between">
                                         <div class="field-wrapper">
                                             <button type="submit" class="btn btn-warning" value="">Log In</button>
@@ -97,7 +80,7 @@
                                     <div class="division">
                                         <span>OR</span>
                                     </div>
-
+                                    <p class="customer-login"><a href="login.jsp">Apply to become a vendor?</a>
                                     <p class="customer-login">Back to <a href="login.jsp">Customer Login</a>
                                     </p>
 

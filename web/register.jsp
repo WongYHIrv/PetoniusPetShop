@@ -29,74 +29,65 @@
                     <div class="form-container">
                         <div class="form-content">                        
                             <h1 class="">Register</h1>
-                            <form method="post" action="ValidateRegister">
+                            <form method="post" action="signUpUser">
                                 <div class="form">
                                     <!--First Name-->
-                                    <div id="fname-field" class="field-wrapper input">
-                                        <label for="fname">FIRST NAME</label>
+                                    <div id="username-field" class="field-wrapper input">
+                                        <label for="username">ID</label>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                        <input type="text" class="form-control" id="fname" name="fname" maxlength="100" value="${fname}" 
-                                               placeholder="Enter your first name">
-                                        <div style="color: red">${firstNameError}</div>
-                                    </div>
-
-                                    <div id="lname-field" class="field-wrapper input">
-                                        <label for="lname">LAST NAME</label>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                        <input type="text" class="form-control" id="lname" name="lname" maxlength="100" value="${lname}" 
-                                               placeholder="Enter your last name">
-                                        <div style="color: red">${lastNameError}</div>
+                                        <input type="text" class="form-control" id="username" name="username" maxlength="100" required
+                                               placeholder="Enter your ID">
                                     </div>
 
                                     <div id="username-field" class="field-wrapper input">
-                                        <label for="username">USERNAME</label>
+                                        <label for="name">NAME</label>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                        <input type="text" class="form-control" id="username" name="username" maxlength="100" value="${username}" 
-                                               placeholder="Enter a username">
-                                        <div style="color: red">${usernameError}</div>
+                                        <input type="text" class="form-control" id="name" name="name" maxlength="100" required
+                                               placeholder="Enter your name">
+                                    </div>
 
+                                    <div id="password-field" class="field-wrapper input">
+                                        <label for="password">PASSWORD</label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                        <input type="password" class="form-control" id="password" name="password" maxlength="100" value="" required
+                                               placeholder="Enter your password" />
+                                        <div style="color: red">${passwordError}</div>
+                                    </div>
+
+                                    <div id="confirmPassword-field" class="field-wrapper input">
+                                        <label for="cPassword">CONFIRM PASSWORD</label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" maxlength="100" value="" required
+                                               placeholder="Re-enter your password" />
                                     </div>
 
                                     <div id="email-field" class="field-wrapper input">
                                         <label for="email">EMAIL ADDRESS</label>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign register"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
-                                        <input type="email" class="form-control" id="email" name="email" maxlength="100" value="${email}" 
+                                        <input type="email" class="form-control" id="email" name="email" maxlength="100" required 
                                                placeholder="example@gmail.com">
-                                        <div style="color: red">${emailError}</div>
                                     </div>
 
-                                    <div id="dob-field" class="field-wrapper input">
-                                        <label for="DOB">DATE OF BIRTH</label>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                        <input type="date" class="form-control" id="DOB" name="DOB" value="${DOB}" min="1900-01-01" max="2002-01-01" 
-                                               >
-                                        <div style="color: red">${DOBError}</div>
-                                    </div>
+                                    <div id="dropdown-field" class="field-wrapper input">
+                                        <label for="area">AREA</label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"></svg>
+                                        <select class="form-control" name="area" id="area" required>
+                                            <option value="">Select your area:</option>
+                                            <option value="Menggatal">Menggatal</option>
+                                            <option value="Kolombong">Kolombong</option>
+                                            <option value="Kota Kinabalu">Kota Kinabalu</option>
+                                        </select>
+                                    </div>   
 
-                                    <div id="hp-field" class="field-wrapper input">
-                                        <label for="DOB">PHONE NUMBER</label>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                        <input type="number" class="form-control" id="hp" name="phoneNumber" maxlength="11" value="${phoneNumber}" 
-                                               placeholder="0123456789">
-                                        <div style="color: red">${phoneNumberError}</div>
+                                    <div id="file-field" class="field-wrapper input">
+                                        <label for="photo">PROFILE PHOTO</label>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign register"></svg>
+                                        <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required>
                                     </div>
-
-                                    <div id="password-field" class="field-wrapper input mb-2">
-                                        <label for="password">PASSWORD</label>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                        <input type="password" class="form-control" id="password" name="password" maxlength="100" value="" 
-                                               placeholder="Enter your password" />
-                                        <div style="color: red">${passwordError}</div>
-                                    </div>
-
-                                    <div id="confirmPassword-field" class="field-wrapper input mb-2">
-                                        <label for="cPassword">CONFIRM PASSWORD</label>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" maxlength="100" value="" 
-                                               placeholder="Re-enter your password" />
-                                        <div style="color: red">${confirmPasswordError}</div>
-                                    </div>
-
+                                    <% if (request.getParameter("error") != null) {
+                                    String error = request.getParameter("error");%>
+                                    <p style="color: red;"><%= error%></p>
+                                    <% } %>
                                     <div class="d-sm-flex justify-content-between">
                                         <div class="field-wrapper">
                                             <input type="submit" class="btn btn-warning register" value="Get Started!">
